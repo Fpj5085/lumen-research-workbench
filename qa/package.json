@@ -1,0 +1,16 @@
+{
+  "name": "stock-monitor-demo-qa",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Independent QA harness (reviewer-owned). Does not modify frontend/ or python-lab/ implementation files.",
+  "scripts": {
+    "install:browsers": "playwright install chromium",
+    "test:e2e": "playwright test",
+    "test:e2e:desktop": "playwright test --project=desktop-chromium",
+    "test:e2e:mobile": "playwright test --project=mobile-390"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  }
+}

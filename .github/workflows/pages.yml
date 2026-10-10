@@ -1,0 +1,85 @@
+# GitHub Pages 部署：只构建并发布静态层 frontend/（纯前端、合成数据、无后端）。
+# 不调用 python-lab，不部署 Python 服务。
+#
+# 依据（均为 GitHub 官方一手来源，2026-10-10 核对）：
+#  - github/docs「Using custom workflows with GitHub Pages」：
+#    configure-pages / upload-pages-artifact / deploy-pages 三步式，
+#    deploy job 至少需要 pages: write 与 id-token: write，需 github-pages environment。
+#  - actions/upload-pages-artifact README：产物名必须为 github-pages（本 action 默认），
+#    路径由 path 输入指定，单个 gzip 包内单个 tar。
+#  - actions/deploy-pages action.yml：默认 artifact_name=github-pages，输出 page_url。
+#  - 版本：各官方仓库最新 release 的 major tag（见 .github/workflows/README.md）。
+
+name: Deploy static demo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+# 最小权限：默认只读仓库内容；pages/id-token 只在 deploy job 内单独授予。
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      # 读取 Pages 站点元数据（base_url/base_path）。不自动启用 Pages：
+      # enablement 默认 false，需先用 gh api 把 Pages 源设为 workflow（见发布命令文档）。
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Install (npm ci)
+        working-directory: frontend
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: frontend
+        run: npm run typecheck
+
+      - name: Unit tests
+        working-directory: frontend
+        run: npm run test
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: frontend/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

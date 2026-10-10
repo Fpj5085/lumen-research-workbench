@@ -1,0 +1,35 @@
+# --- Node / frontend ---
+node_modules/
+dist/
+.vite/
+coverage/
+*.local
+
+# --- Python / python-lab ---
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+.local-verification/
+
+# --- QA raw receipts and transient artefacts ---
+# Independent QA keeps its raw test receipts and screenshots out of the public
+# manifest; docs/screenshots/ holds only the curated demo captures.
+qa/results/
+qa/test-results/
+qa/playwright-report/
+qa/node_modules/
+# Reviewer-only audit toolchain virtualenv (public pip-audit, never published).
+qa/.audit-venv/
+
+# --- Local editor / OS noise ---
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

@@ -1,0 +1,6 @@
+# Runtime dependencies for the python-lab experiment.
+# Keep this list minimal: the demo is a small local FastAPI service.
+fastapi>=0.115,<1.0
+pydantic>=2.7,<3.0
+uvicorn>=0.30,<1.0
+
