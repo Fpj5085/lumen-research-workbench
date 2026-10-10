@@ -170,8 +170,20 @@ python3 -m venv .venv
 | `npm run build`（`frontend`） | `✓ 56 modules transformed`、`dist/index.html 0.90 kB`、`dist/assets/index-CFEluCgZ.css 11.33 kB`、`dist/assets/index-Bi6ZfU9Z.js 296.09 kB`、`✓ built in 739ms` | **0** |
 | `.venv\Scripts\python.exe -m pytest -q`（`python-lab`） | `72 passed, 1 warning in 2.70s`（warning 为第三方 `starlette`/`httpx` 弃用提示，非本项目告警） | **0** |
 
-**发布状态：本地验证通过，尚未发布。** 仓库未创建、未 commit、未 push、Pages 未启用；
-目标站点的实际访问与子路径行为**待发布后另行复测**，本文档不预先声称已通过。
+**发布状态：已发布（2026-10-10）。**
+
+| 项 | 值 |
+| --- | --- |
+| 仓库 | `https://github.com/Fpj5085/lumen-research-workbench`（public） |
+| Pages | `https://fpj5085.github.io/lumen-research-workbench/` |
+| 初始 commit | `637dabbcdc3e3bea922929e15ab4f38e9e07f10a`（分支 `main`，无 force push） |
+| Actions | run `38046892528`：`build` success、`deploy` success |
+| 线上首页/资源 | 首页 200（899 B）、`assets/index-Bi6ZfU9Z.js` 200（296090 B）、`assets/index-CFEluCgZ.css` 200（11334 B）、`favicon.svg` 200 |
+| 线上子路径 e2e | `subpath.spec.ts` 针对线上 URL **1 passed**（跨源请求 0） |
+
+说明：线上子路径用例**首次**运行时因 CDN 冷启动失败一次，随后连续三次复跑均通过
+（原始回执 `qa/results/release-verify-2026-10-10/06-live-subpath.txt`，该目录被 `.gitignore` 排除）。
+线上**浏览器全量**（22 passed / 1 skipped）**未**在发布后重跑，其数字仍是发布前本机口径。
 
 - 独立审查者已在本机复跑前端 typecheck / 53 项单元测试 / 构建、22 项浏览器桌面与移动端流程
   通过、1 项条件跳过（子路径用例，未设 `QA_SUBPATH_URL` 时按配置跳过），另有一次
