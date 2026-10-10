@@ -189,7 +189,7 @@ dev / runtime / 全 venv 三路审计均 `No known vulnerabilities found`（退�
 | 9 | `git log --oneline` | `fatal: your current branch 'main' does not have any commits yet` | 128 |
 | 10 | `git branch --show-current` | `main` | 0 |
 
-**结论**：Git 历史为**空的新历史**，分支 `main`，**零 commit、零 remote、未 push**（已最终复核）。
+**结论（发布前快照）**：Git 历史为**空的新历史**，分支 `main`，**零 commit、零 remote、未 push**。
 私有仓库的 `.git` 未被复制或引用。第 4/9 项的退出码 128 是「尚无提交」的正常表现，不是错误。
 
 ---
@@ -200,7 +200,8 @@ dev / runtime / 全 venv 三路审计均 `No known vulnerabilities found`（退�
    任何 `LICENSE*` 文件，也**没有** MIT / Apache-2.0 等开源授权声明（第三方依赖各自的
    许可证不受影响，见第 3 节）。
 2. **公开动作**：公开发布已获授权（目标仓库 `Fpj5085/lumen-research-workbench`）；
-   创建仓库、push、启用 Pages 与部署**尚未执行**。
+   创建仓库、push、启用 Pages 与部署**当时尚未执行**；该步骤已于 2026-10-10 完成
+   （commit `637dabbcdc3e3bea922929e15ab4f38e9e07f10a`，run `38046892528` success）。
 3. **人工复核**：本报告为 Agent 产出，公开前建议由本人抽查 `docs/file-origins.md`
    与 `docs/public-file-manifest.md` 的清单。
 

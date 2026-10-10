@@ -66,7 +66,9 @@ src/main.tsx(4,8): error TS2307: Cannot find module './styles/global.css' or its
 > 该行是**历史回执原文**，其中的子路径 `lumen-synthetic-research-workbench` 是当时的占位仓库名。
 > 发布准备已把默认仓库名改为目标仓库 `lumen-research-workbench`
 > （`scripts/serve-subpath.mjs`、`qa/e2e/subpath.spec.ts`）；目标站点
-> `https://fpj5085.github.io/lumen-research-workbench/` **尚未部署**，其子路径行为**待发布后另行复测**。
+> `https://fpj5085.github.io/lumen-research-workbench/` 当时**尚未部署**。**发布后已补测**：
+> 针对线上站点的子路径用例 `1 passed`（首次因 CDN 冷启动失败一次，随后连续复跑通过），
+> 见 `qa/results/release-verify-2026-10-10/06-live-subpath.txt`（ignored）。
 
 > 第 2–5 项在**前端依赖升级（vitest 3→5）之后**重新独立复跑，结果不变；
 > `vitest.config.ts` 与 5 个单测文件哈希未变，说明测试行为未被规避。
@@ -162,8 +164,8 @@ src/main.tsx(4,8): error TS2307: Cannot find module './styles/global.css' or its
 | 生产并发 / 容量 / 延迟 | **未覆盖** | 无生产服务可测；本地 demo 数字不能外推 |
 | 真实行情准确性 / 投资价值 | **不适用** | 全部为合成数据 |
 | 人工验收 | **未完成** | 由用户本人执行 |
-| 公开仓库 / Pages / 部署 | **未执行** | 已获授权，发布流程尚未执行 |
-| 目标 Pages 站点子路径复测 | **未覆盖** | 站点尚未部署；发布后需另行复跑子路径用例 |
+| 公开仓库 / Pages / 部署 | **已执行（2026-10-10）** | 仓库 public、Pages `build_type=workflow`、run `38046892528` success |
+| 目标 Pages 站点子路径复测 | **已覆盖（发布后）** | 线上 `subpath.spec.ts` 1 passed；线上全量浏览器套件仍未重跑 |
 
 ### 3.1 已协调关闭的文案项（保留历史）
 

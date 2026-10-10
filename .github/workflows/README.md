@@ -42,7 +42,18 @@ workflow 本身不启用 Pages：`configure-pages` 的 `enablement` 默认为 `f
 目标：仓库 `Fpj5085/lumen-research-workbench`，站点
 `https://fpj5085.github.io/lumen-research-workbench/`，子路径 `/lumen-research-workbench/`。
 
-## 5. 未在本机验证的部分（如实声明）
+## 5. 运行结果（发布后回填）
 
-本机未执行 `act`/CI 复现，也未 push：workflow 的语法与 action 版本来自官方文档与官方仓库元数据，
-**运行结果尚未验证**。首次 push 后必须查看 Actions 运行结论，再确认 Pages 站点可访问。
+**已在 GitHub Actions 实跑成功**（不再是「未验证」）：
+
+| 项 | 值 |
+| --- | --- |
+| 运行 | run `38046892528`，`conclusion: success` |
+| head SHA | `637dabbcdc3e3bea922929e15ab4f38e9e07f10a` |
+| jobs | `build` success（11:00:46→11:01:02Z）、`deploy` success（11:01:06→11:01:15Z） |
+| run URL | https://github.com/Fpj5085/lumen-research-workbench/actions/runs/38046892528 |
+| Pages | `build_type: workflow`、`https_enforced: true`、`html_url` = `https://fpj5085.github.io/lumen-research-workbench/` |
+| 线上抽查 | 首页 200、`assets/index-Bi6ZfU9Z.js` 200、`assets/index-CFEluCgZ.css` 200、`favicon.svg` 200 |
+
+**历史说明（保留）**：在首次 push 之前，本机确实**没有**用 `act` 或 CI 复现过该 workflow，
+当时 action 版本只来自官方文档与官方仓库元数据。该缺口现已由上述真实运行结论关闭。

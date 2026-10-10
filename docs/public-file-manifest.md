@@ -5,8 +5,10 @@
 **清单口径**：`main` 工作树在 2026-10-10 的**预冻结**快照，随后经**发布准备**增量修订
 （删除拟议 `LICENSE`、新增 Pages workflow、修正目标子路径）。哈希以冻结时复扫为准（见第 5 节）。
 
-> 说明：公开发布已获授权（目标仓库 `Fpj5085/lumen-research-workbench`）。创建仓库、push、
-> 启用 Pages 与部署**尚未执行**；本清单描述的是拟提交内容。
+> 说明：**已发布**（2026-10-10）。仓库 `https://github.com/Fpj5085/lumen-research-workbench`
+> （public），站点 `https://fpj5085.github.io/lumen-research-workbench/`，初始 commit
+> `637dabbcdc3e3bea922929e15ab4f38e9e07f10a`，Actions run `38046892528` success。
+> 本清单的哈希以**该已发布提交之后**的工作树为准。
 
 ---
 
@@ -17,7 +19,7 @@
 | 文件 | 字节 | SHA-256(16) | 来源 |
 | --- | --- | --- | --- |
 | `.gitignore` | 652 | `08B0C73050C7B531` | 原创（新增 `qa/.audit-venv/` 排除） |
-| `README.md` | 13028 | `2518942B71552DDF` | 原创（发布准备修订：许可证章节、部署章节、本地复跑回执、发布结果） |
+| `README.md` | 13262 | `3204F4CA70ADB0F8` | 原创（发布准备修订：许可证章节、部署章节、本地复跑回执、发布结果、在线链接） |
 
 > `LICENSE` **不在本清单内**：该文件已在发布准备中删除，第一版不附开源许可证（见下）。
 
@@ -29,8 +31,8 @@
 
 | 文件 | 字节 | SHA-256(16) | 来源 |
 | --- | --- | --- | --- |
-| `docs/verification.md` | 14368 | `E85E322E3B58D8C2` | 原创（发布准备修订：历史口径标注 + 目标站点子路径待复测） |
-| `docs/security-review.md` | 17930 | `DD5698A11E4A1DE7` | 原创（发布准备修订 + 独立审查者追加第 6 节发布前验收） |
+| `docs/verification.md` | 14630 | `526E6E59E5962D95` | 原创（发布准备修订 + 发布后补测口径） |
+| `docs/security-review.md` | 18059 | `DA374DC638DB41FE` | 原创（发布准备修订 + 独立审查者第 6 节 + 发布状态回填） |
 | `docs/file-origins.md` | 5977 | `0BAB7B4A22A73E99` | 原创（发布准备修订） |
 | `docs/public-file-manifest.md` | — | （自指，见下注） | 原创（本文件） |
 
@@ -160,11 +162,11 @@
 | 文件 | 字节 | SHA-256(16) | 变更 |
 | --- | --- | --- | --- |
 | `LICENSE` | — | — | **删除**（第一版不附开源许可证） |
-| `README.md` | 13028 | `2518942B71552DDF` | 许可证章节改写为「不附开源许可证」；新增「部署（GitHub Pages）」章节；验证状态改为 22 通过 / 1 条件跳过 + 单独子路径复跑口径；新增本地复跑字面结果表与发布结果表 |
+| `README.md` | 13262 | `3204F4CA70ADB0F8` | 许可证章节改写为「不附开源许可证」；新增「部署（GitHub Pages）」章节；验证状态改为 22 通过 / 1 条件跳过 + 单独子路径复跑口径；新增本地复跑与发布结果表、开头在线链接 |
 | `.github/workflows/pages.yml` | 2583 | `0F9E4EF573F601CC` | 新增：Pages 构建 + 部署（仅 `frontend/`） |
-| `.github/workflows/README.md` | 3151 | `DE3B4AEBA62166A9` | 新增：action 版本一手来源与 Pages 配置说明 |
-| `docs/verification.md` | 14368 | `E85E322E3B58D8C2` | 子路径行标注为历史回执原文；未覆盖项改为「已获授权、流程未执行」并加目标站点子路径待复测 |
-| `docs/security-review.md` | 17930 | `DD5698A11E4A1DE7` | git status 行标注为历史原文；第 5 节改为发布准备状态；独立审查者追加第 6 节发布前独立验收（浏览器/子路径/Python 契约/边界） |
+| `.github/workflows/README.md` | 3782 | `D3FE27C6823FD918` | 新增：action 版本一手来源与 Pages 配置说明；第 5 节由「未验证」回填为真实运行结论 |
+| `docs/verification.md` | 14630 | `526E6E59E5962D95` | 子路径行标注为历史回执原文并加发布后补测；未覆盖项更新为已执行（含线上子路径 1 passed） |
+| `docs/security-review.md` | 18059 | `DA374DC638DB41FE` | git status 行标注为历史原文；第 5 节改为发布准备状态；独立审查者追加第 6 节；发布状态回填为已完成 |
 | `docs/file-origins.md` | 5977 | `0BAB7B4A22A73E99` | 删除 `LICENSE` 行；新增 `.github/workflows/pages.yml` 行 |
 | `docs/public-file-manifest.md` | — | （自指，留空） | 本文件：删除 `LICENSE` 条目、新增 workflow 与本节、刷新全部被改行哈希 |
 | `scripts/serve-subpath.mjs` | 2641 | `A5065554939BCC23` | 默认仓库名改为 `lumen-research-workbench` |

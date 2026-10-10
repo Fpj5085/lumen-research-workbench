@@ -7,6 +7,11 @@
 > 不是实时行情，也不是投资建议。示例日期取自虚构日历（2030 年），非实际交易日。
 > 页面在浏览器内运行，不请求任何后端服务。
 
+**在线演示（已发布）：<https://fpj5085.github.io/lumen-research-workbench/>**  ·  
+**仓库：<https://github.com/Fpj5085/lumen-research-workbench>**
+
+上面的链接可直接点击；页面为纯静态、全部数据为合成数据，不需要任何后端或登录。
+
 本仓库包含三块**性质不同**的内容，请先分清，再决定看哪一块：
 
 | 层 | 位置 | 是什么 | 不是什么 |
@@ -189,17 +194,16 @@ python3 -m venv .venv
   通过、1 项条件跳过（子路径用例，未设 `QA_SUBPATH_URL` 时按配置跳过），另有一次
   单独带 `QA_SUBPATH_URL` 的子路径复跑通过；以及 Python 的 pytest 与真实 socket 冒烟测试。
   上述数字是**当时本机回执的历史口径**（详见 `docs/verification.md`），不是对
-  `https://fpj5085.github.io/lumen-research-workbench/` 的测试结果——目标站点尚未部署，
-  其子路径行为**待发布后另行复测**。
+  <https://fpj5085.github.io/lumen-research-workbench/> 的完整测试结果——其中子路径用例
+  已于发布后针对线上站点单独复跑通过（见下方发布状态表）。
 - 依赖审计：前端全量 `npm audit` = **0 漏洞**；Python **runtime** 与 **dev** 依赖审计均为 **0 漏洞**。
   首轮曾各发现前端 3 条（`vitest` 链）与 Python 1 条（`pytest` PYSEC-2026-1845）告警，
   均已修复并由独立审查者复测为 0（详见 `docs/security-review.md`）。
 - 命令、字面结果、退出码与日期见 [docs/verification.md](docs/verification.md)；
   公开边界与安全审查见 [docs/security-review.md](docs/security-review.md)。
 - **待用户实际验收**：上述结论来自自动与 Agent 审查，本人尚未完成人工验收。
-- **发布状态**：公开发布已获授权；创建公开仓库、push、启用 Pages 与部署**尚未执行**。
-  目标仓库 `Fpj5085/lumen-research-workbench`；Pages 站点
-  `https://fpj5085.github.io/lumen-research-workbench/`。
+ - **发布状态**：**已发布**（2026-10-10）。仓库与在线站点见本文开头链接；
+  初始 commit 与 Actions run 见上方发布状态表。
 
 ## 局限
 
