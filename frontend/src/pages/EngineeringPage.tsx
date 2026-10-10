@@ -240,19 +240,19 @@ export function EngineeringPage() {
       </section>
 
       <section className="card stack" data-testid="engineering-contributions">
-        <h2>角色分工与局限</h2>
+        <h2>我的工作与工程取舍</h2>
         <ul className="bullet-list">
           <li>
-            <strong>用户：</strong>确定目标受众、产品取舍、公开边界与验收标准，并作为最终验收人。
+            <strong>需求与产品设计：</strong>我确定目标受众与 1／3／5 分钟浏览路径，规划榜单、详情、观察与任务演示的功能范围。
           </li>
           <li>
-            <strong>Coding Agent：</strong>在本独立目录实现数据生成器、状态机、页面与单元测试。
+            <strong>架构与工程要求：</strong>我明确静态体验与 FastAPI 本地实验的双层结构，将版本一致性、失败拒绝发布、幂等与冲突处理设为核心展示与验收目标。
           </li>
           <li>
-            <strong>独立 Agent：</strong>以独立工装复核渲染、交互与阻断流程（该工装不在本目录内）。
+            <strong>公开与交付：</strong>我要求数据从零合成、私有实现隔离，并确定独立仓库、GitHub Pages 与第一版不附开源许可证的发布方式。
           </li>
           <li>
-            <strong>人工验收：</strong>待用户完成，尚未进行；本页不预先声称已通过人工验收。
+            <strong>开发方式：</strong>我使用 AI 编程工具辅助代码实现、测试与文档整理，并安排交叉检查；项目方向、核心需求与发布决策由我主导，不将 AI 辅助开发表述为全部代码手工编写。
           </li>
           <li>演示的数据、代码、图表与文案全部在本独立目录从零制作，未复制任何外部仓库内容。</li>
           <li>

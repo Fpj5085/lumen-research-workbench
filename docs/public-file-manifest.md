@@ -19,7 +19,7 @@
 | 文件 | 字节 | SHA-256(16) | 来源 |
 | --- | --- | --- | --- |
 | `.gitignore` | 652 | `08B0C73050C7B531` | 原创（新增 `qa/.audit-venv/` 排除） |
-| `README.md` | 13262 | `3204F4CA70ADB0F8` | 原创（发布准备修订：许可证章节、部署章节、本地复跑回执、发布结果、在线链接） |
+| `README.md` | 13892 | `41CBCC3C9E2B42C7` | 原创（发布准备修订；作者贡献采用第一人称叙述） |
 
 > `LICENSE` **不在本清单内**：该文件已在发布准备中删除，第一版不附开源许可证（见下）。
 
@@ -36,7 +36,7 @@
 | `docs/file-origins.md` | 5977 | `0BAB7B4A22A73E99` | 原创（发布准备修订） |
 | `docs/public-file-manifest.md` | — | （自指，见下注） | 原创（本文件） |
 
-| `docs/screenshots/desktop-engineering.png` | 1870926 | `BFB67D639175059F` | 自生成（含更新后的 Python Lab 回执面板） |
+| `docs/screenshots/desktop-engineering.png` | 1939750 | `B20914392D5A3264` | 自生成（含作者贡献修订与 Python Lab 面板） |
 | `docs/screenshots/desktop-history.png` | 274320 | `8A27CE30F5200C43` | 自生成 |
 | `docs/screenshots/desktop-home.png` | 970563 | `DEE57A1154C5BF83` | 自生成 |
 | `docs/screenshots/desktop-leaderboard.png` | 709683 | `B78021A76425DAE6` | 自生成 |
@@ -91,7 +91,7 @@
 | `frontend/src/components/StatusBadge.tsx` | 423 | `801FDD4388542FA5` | 原创 |
 | `frontend/src/components/SyntheticBadge.tsx` | 169 | `AC7EB7BD8852225C` | 原创 |
 | `frontend/src/content/python-lab.ts` | 4880 | `E3326637777201C2` | 原创 |
-| `frontend/src/pages/EngineeringPage.tsx` | 13373 | `AECA9035CD40E43A` | 原创 |
+| `frontend/src/pages/EngineeringPage.tsx` | 13699 | `CC58D4591C9FD456` | 原创（作者贡献文案修订） |
 | `frontend/src/pages/HistoryPage.tsx` | 2659 | `4392B7049D08BD2C` | 原创 |
 | `frontend/src/pages/HomePage.tsx` | 12172 | `DC78046E4CE48C11` | 原创 |
 | `frontend/src/pages/LeaderboardPage.tsx` | 8766 | `E53966AE2D9459E6` | 原创 |
@@ -162,7 +162,7 @@
 | 文件 | 字节 | SHA-256(16) | 变更 |
 | --- | --- | --- | --- |
 | `LICENSE` | — | — | **删除**（第一版不附开源许可证） |
-| `README.md` | 13262 | `3204F4CA70ADB0F8` | 许可证章节改写为「不附开源许可证」；新增「部署（GitHub Pages）」章节；验证状态改为 22 通过 / 1 条件跳过 + 单独子路径复跑口径；新增本地复跑与发布结果表、开头在线链接 |
+| `README.md` | 13892 | `41CBCC3C9E2B42C7` | 许可证、发布结果与在线链接；贡献章节改为作者主导的需求、架构方向、验收要求与发布决策，简述 AI 辅助开发 |
 | `.github/workflows/pages.yml` | 2583 | `0F9E4EF573F601CC` | 新增：Pages 构建 + 部署（仅 `frontend/`） |
 | `.github/workflows/README.md` | 3782 | `D3FE27C6823FD918` | 新增：action 版本一手来源与 Pages 配置说明；第 5 节由「未验证」回填为真实运行结论 |
 | `docs/verification.md` | 14630 | `526E6E59E5962D95` | 子路径行标注为历史回执原文并加发布后补测；未覆盖项更新为已执行（含线上子路径 1 passed） |
